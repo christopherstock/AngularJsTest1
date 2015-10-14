@@ -1,0 +1,14 @@
+
+    /*****************************************************************************
+    *   Contains all style attributes the html page makes use of.
+    *
+    *   @author     Christopher Stock
+    *   @version    0.0.1
+    *****************************************************************************/
+    body.ngTest
+    {
+        margin:                     auto;
+        overflow:                   hidden;
+        text-align:                 center;
+        background:                 #ffffff url( ../res/image/logoAngularjsWatermark.png ) no-repeat right top;
+    }
