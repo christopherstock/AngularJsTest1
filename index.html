@@ -39,9 +39,48 @@
     <!-- the body will be appended with the HTML5 canvas3D -->
     <body class="ngTest">
 
-        <!-- the 1st example -->
+        <!-- example 1 - expressions -->
         <input type="text" ng-model="search">
-        <p>Du suchst gerade nach: {{search}}</p>
+        <p>Search is: [{{search}}]</p>
+
+        <!-- example 2 - expressions -->
+        <p>Search in UpperCase is: [{{search.toUpperCase()}}]</p>
+        <p>Search length is: [{{search.length}}]</p>
+        <p>Dynamic example is: [{{1 + 2 + 3}}]</p>
+
+        <!-- example 3 - condition-directives - only shows if 'search' has a value -->
+        <p ng-show="search">You have been looking for: {{search}}</p>
+        <p></p>
+
+        <!-- example 4 - loop-directives - shows up repeated times -->
+        <table border="1px" align="center">
+            <tr ng-repeat="article in ['Pizza Margherita', 'Pizza Tonno', 'Pizza Diavolo']">
+                <td>{{article}}</td>
+            </tr>
+        </table>
+        <p></p>
+
+        <!-- example 5 - specifying variables using ng-init -->
+        <table border="1px" align="center" ng-init="articles = ['Pasta Farfalle', 'Pasta Penne', 'Pasta Rigatoni']">
+            <tr ng-repeat="article in articles">
+                <td>{{article}}</td>
+            </tr>
+        </table>
+        <p></p>
+
+        <!-- example 6 - filtering loops -->
+        <table border="1px" align="center" ng-init="products = ['Article Rubber Duck', 'Article Bottle Neck', 'Article Wool Pullover']">
+            <tr ng-repeat="product in products | filter:search">
+                <td>{{product}}</td>
+            </tr>
+        </table>
+        <p></p>
+
+
+
+
+
+
 
 
 
