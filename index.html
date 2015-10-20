@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <!-- Welcome to the TypeScript/AngularJS primer -->
-<html ng-app>
+<html ng-app="chrisApp">
 
     <!-- the head specifies all meta information -->
     <head>
@@ -22,7 +22,6 @@
         <!-- use bootstrap -->
         <link rel="stylesheet" type="text/css" href="css/bootstrap_3.0.3.min.css">
 
-
         <!-- suppress viewport scalation for touch-devices -->
         <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1" />
 
@@ -30,9 +29,7 @@
         <script type="text/javascript" src="lib/angular_1.4.0.js"></script>
 
         <!-- include all js-sources -->
-<!--
-        <script type="text/javascript" src="src/de/mayflower/mfg/Mfg.js"></script>
--->
+        <script type="text/javascript" src="src/de/mayflower/angular/app.js"></script>
 
     </head>
 
@@ -40,6 +37,7 @@
     <body class="ngTest">
 
         <!-- example 1 - expressions -->
+        <p></p>
         <input type="text" ng-model="search">
         <p>Search is: [{{search}}]</p>
 
@@ -69,12 +67,25 @@
         <p></p>
 
         <!-- example 6 - filtering loops -->
+        <p>Article Search filter:</p>
+        <input type="text" ng-model="articleSearch">
+        <p></p>
         <table border="1px" align="center" ng-init="products = ['Article Rubber Duck', 'Article Bottle Neck', 'Article Wool Pullover']">
-            <tr ng-repeat="product in products | filter:search">
+            <tr ng-repeat="product in products | filter:articleSearch">
                 <td>{{product}}</td>
             </tr>
         </table>
         <p></p>
+
+        <!-- example 7 - controllers -->
+        <table border="1px" align="center" ng-controller="ArticlesCtrl">
+            <tr ng-repeat="article in articles | filter:articleSearch">
+                <td>{{article.id}}</td>
+                <td>{{article.name}}</td>
+                <td>{{article.price}}</td>
+            </tr>
+        </table>
+
 
 
 
