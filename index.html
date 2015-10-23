@@ -27,6 +27,7 @@
         <!-- use these external JavaScript sources - the angularJS API is included -->
         <script type="text/javascript" src="lib/angular_1.4.0.js"></script>
         <script type="text/javascript" src="lib/angular-animate_1.4.0.js"></script>
+        <script type="text/javascript" src="lib/angular-route_1.4.0.js"></script>
         <script type="text/javascript" src="src/de/mayflower/angular/app.js"></script>
 
     </head>
@@ -141,11 +142,14 @@
         <p>Price-Tag (77.8): <price value="77.8"></price></p>
         <p>Price-Tag (00.000): <price value="00.000"></price></p>
 
-
-
-
-
-
+        <!-- example 11 - routes -->
+        <p>
+                <a href="#/">Start</a>
+            |   <a href="#/about">Über</a>
+            |   <a href="#/contact">Kontakt</a>
+            |   <a href="#/imprint">Impressum</a>
+        </p>
+        <div ng-view></div>
 
     </body>
 

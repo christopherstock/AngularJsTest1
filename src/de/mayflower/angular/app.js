@@ -14,7 +14,8 @@
     var myModule = angular.module(
         'chrisApp',
         [
-            'ngAnimate'
+            'ngAnimate',
+            'ngRoute'
         ]
     );
 
@@ -37,7 +38,9 @@
         function( $scope, $http ) {
 
             $http.get( 'res/data/articles.json' ).then(
+
                 function( articlesResponse ) {
+
                     $scope.flyerArticles = articlesResponse.data;
                 }
             );
@@ -50,13 +53,17 @@
 
             var items = [];
             return {
+
                 getItems: function() {
+
                     return items;
                 },
                 addArticle: function( article ) {
+
                     items.push( article );
                 },
                 sum: function() {
+
                     return items.reduce(
                         function( total, article ) {
                             return total + article.price;
@@ -93,6 +100,7 @@
     myModule.directive(
         'price',
         function() {
+
             return {
                 restrict:   'E',
                 scope:      {
@@ -101,5 +109,17 @@
                 template:       '<span ng-show="value == 0">kostenlos</span>'
                             +   '<span ng-show="value > 0">{{value | currency}}</span>'
             }
+        }
+    );
+
+    myModule.config(
+        function( $routeProvider ) {
+
+            $routeProvider
+                .when( '/',         { template:     'Willkommen zur Startseite' } )
+                .when( '/about',    { template:     'Über unsere Pizzeria'      } )
+                .when( '/contact',  { templateUrl:  'res/html/contact.html'     } )
+                .when( '/imprint',  { template:     'Impressums-Angaben'        } )
+                .otherwise(         { redirectTo:   '/'                         } );
         }
     );
