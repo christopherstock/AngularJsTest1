@@ -18,3 +18,21 @@
             ];
         }
     );
+
+    myModule.controller(
+        'FlyerArticlesCtrl',
+        function( $scope, $http ) {
+
+            $http.get( 'res/data/articles.json' ).then(
+                function( articlesResponse ) {
+                    $scope.flyerArticles = articlesResponse.data;
+                }
+            );
+
+
+
+        }
+    );
+
+
+

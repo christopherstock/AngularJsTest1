@@ -6,29 +6,26 @@
     <!-- the head specifies all meta information -->
     <head>
 
-        <!-- the document's title is set dynamically -->
+        <!-- the document's title -->
         <title>TypeScript/AngularJS primer, v.0.1</title>
 
         <!-- specify the charset -->
         <meta charset="utf8">
 
+        <!-- suppress viewport scalation for touch-devices and use cutting edge browser features -->
+        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
         <!-- set the favicon icon -->
         <link rel="icon"          href="favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
-        <!-- use this external stylesheet -->
+        <!-- use these external stylesheets - the bootstrap API is included -->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap_3.0.3.min.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
 
-        <!-- use bootstrap -->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap_3.0.3.min.css">
-
-        <!-- suppress viewport scalation for touch-devices -->
-        <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1" />
-
-        <!-- use angular-js lib -->
+        <!-- use these external JavaScript sources - the angularJS API is included -->
         <script type="text/javascript" src="lib/angular_1.4.0.js"></script>
-
-        <!-- include all js-sources -->
         <script type="text/javascript" src="src/de/mayflower/angular/app.js"></script>
 
     </head>
@@ -86,6 +83,18 @@
             </tr>
         </table>
 
+        <!-- example 8 - services -->
+        <p></p>
+        <p>External JSON data:</p>
+        <input type="text" ng-model="flyerArticleSearch">
+        <p></p>
+        <table border="1px" align="center" ng-controller="FlyerArticlesCtrl">
+            <tr ng-repeat="article in flyerArticles | filter:flyerArticleSearch">
+                <td>{{article.id}}</td>
+                <td>{{article.name}}</td>
+                <td>{{article.price}}</td>
+            </tr>
+        </table>
 
 
 
