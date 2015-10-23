@@ -70,7 +70,13 @@
         }
     );
 
+    myModule.controller(
+        'CartCartCtrl',
+        function( $scope, Cart ) {
 
+            $scope.cart = Cart;
+        }
+    );
 
 
 

@@ -111,14 +111,28 @@
                 <td>{{article.id}}</td>
                 <td>{{article.name}}</td>
                 <td>{{article.price}}</td>
+                <td><a href class="btn btn-default btn-sm" ng-click="cart.addArticle(article);">Hinzufügen</a></td>
             </tr>
         </table>
 
+        <p></p>
+        <p>Shopping Cart:</p>
+        <div ng-controller="CartCartCtrl">
+            <div ng-hide="cart.getItems().length" style="color: #ff0000;">Ihr Warenkorb ist noch leer.</div>
+            <table border="1px" align="center" ng-show="cart.getItems().length">
+                <tr ng-repeat="item in cart.getItems() track by $index">
+                    <td>{{item.name}}</td>
+                    <td>{{item.price | currency}}</td>
+                </tr>
+                <tr style="background-color: #c7c7c7;">
+                    <td>{{cart.getItems().length}} Artikel</td>
+                    <td>{{cart.sum() | currency}}</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
 
-
-
-
-
+    
 
 
 
