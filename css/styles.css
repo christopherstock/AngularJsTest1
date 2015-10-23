@@ -20,3 +20,18 @@
         width:                      500px;
         border:                     1px #aaaaaa solid;
     }
+
+    tr.cart-item.ng-enter
+    {
+        -webkit-transition:         0.5s linear all;
+        transition:                 0.5s linear all;
+        background-color:           #ffff00;
+    }
+
+    tr.cart-item.ng-enter-active
+    {
+        background-color:           #ffffff;
+    }
+
+
+

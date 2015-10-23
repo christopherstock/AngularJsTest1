@@ -2,9 +2,21 @@
     /***********************************************************************************
     *   A joyride with AngularJS.
     *
+    *   TODO ASAP   Solve all functionality from the AngularJS tutorial.
+    *   TODO HIGH   Apply AngularJS animations.
+    *   TODO HIGH   Outsource all css style attributes.
+    *   TODO INIT   Move all JS files to TS.
+    *   TODO LOW    Separate functionality to different TS classes.
+    *   TODO WEAK   Give TS modules one more try?
+    *
     *   @type chrisApp
     ***********************************************************************************/
-    var myModule = angular.module( 'chrisApp', [] );
+    var myModule = angular.module(
+        'chrisApp',
+        [
+            'ngAnimate'
+        ]
+    );
 
     console.log( "myModule is: [" + myModule + "]" );
 
@@ -78,5 +90,16 @@
         }
     );
 
-
-
+    myModule.directive(
+        'price',
+        function() {
+            return {
+                restrict:   'E',
+                scope:      {
+                    value:  '='
+                },
+                template:       '<span ng-show="value == 0">kostenlos</span>'
+                            +   '<span ng-show="value > 0">{{value | currency}}</span>'
+            }
+        }
+    );

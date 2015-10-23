@@ -26,6 +26,7 @@
 
         <!-- use these external JavaScript sources - the angularJS API is included -->
         <script type="text/javascript" src="lib/angular_1.4.0.js"></script>
+        <script type="text/javascript" src="lib/angular-animate_1.4.0.js"></script>
         <script type="text/javascript" src="src/de/mayflower/angular/app.js"></script>
 
     </head>
@@ -120,19 +121,29 @@
         <div ng-controller="CartCartCtrl">
             <div ng-hide="cart.getItems().length" style="color: #ff0000;">Ihr Warenkorb ist noch leer.</div>
             <table border="1px" align="center" ng-show="cart.getItems().length">
-                <tr ng-repeat="item in cart.getItems() track by $index">
+                <tr ng-repeat="item in cart.getItems() track by $index" class="cart-item">
                     <td>{{item.name}}</td>
                     <td>{{item.price | currency}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr style="background-color: #c7c7c7;">
                     <td>{{cart.getItems().length}} Artikel</td>
                     <td>{{cart.sum() | currency}}</td>
-                    <td></td>
                 </tr>
             </table>
         </div>
 
-    
+        <!-- example 10 - directives -->
+        <p></p>
+        <p>Price-Tag (77.8): <price value="77.8"></price></p>
+        <p>Price-Tag (00.000): <price value="00.000"></price></p>
+
+
+
+
 
 
 
