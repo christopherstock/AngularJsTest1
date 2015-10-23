@@ -34,7 +34,6 @@
     <body class="ngTest">
 
         <!-- example 1 - expressions -->
-        <p></p>
         <input type="text" ng-model="search">
         <p>Search is: [{{search}}]</p>
 
@@ -63,6 +62,8 @@
         </table>
         <p></p>
 
+        <hr>
+
         <!-- example 6 - filtering loops -->
         <p>Article Search filter:</p>
         <input type="text" ng-model="articleSearch">
@@ -83,6 +84,8 @@
             </tr>
         </table>
 
+        <hr>
+
         <!-- example 8 - services -->
         <p></p>
         <p>External JSON data:</p>
@@ -96,6 +99,20 @@
             </tr>
         </table>
 
+        <hr>
+
+        <!-- example 9 - service factory -->
+        <p></p>
+        <p>Service factory:</p>
+        <input type="text" ng-model="cartArticleSearch">
+        <p></p>
+        <table border="1px" align="center" ng-controller="CartArticlesCtrl">
+            <tr ng-repeat="article in cartArticles | filter:cartArticleSearch">
+                <td>{{article.id}}</td>
+                <td>{{article.name}}</td>
+                <td>{{article.price}}</td>
+            </tr>
+        </table>
 
 
 

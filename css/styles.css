@@ -7,9 +7,16 @@
     *****************************************************************************/
     body.ngTest
     {
-        margin:                     auto;
+        margin:                     25px auto 25px auto;
         overflow-x:                 auto;
         overflow-y:                 scroll;
         text-align:                 center;
         background:                 #ffffff url( ../res/image/logoAngularjsWatermark.png ) no-repeat right top;
+    }
+
+    hr
+    {
+        height:                     1px;
+        width:                      500px;
+        border:                     1px #aaaaaa solid;
     }
